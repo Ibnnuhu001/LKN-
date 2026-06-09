@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn 4-Week Content Calendar — CV Writing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --card: #1a1a24;
+    --border: #2a2a38;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --white: #f0efe8;
+    --muted: #7a7a8c;
+    --edu: #1e4a6b;
+    --edu-accent: #4aa8e8;
+    --story: #1e3a2a;
+    --story-accent: #4ecb71;
+    --sell: #3a1e2a;
+    --sell-accent: #e84a8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0a0a0f 0%, #13101a 50%, #0a0f0a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  .legend {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  /* WEEK SECTION */
+  .week-section {
+    max-width: 860px;
+    margin: 48px auto 0;
+    padding: 0 24px;
+  }
+
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .week-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    min-width: 60px;
+  }
+
+  .week-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .week-info p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+    margin-bottom: 28px;
+    opacity: 0.3;
+  }
+
+  /* POST CARD */
+  .post-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .type-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .type-edu { background: rgba(74,168,232,0.12); color: var(--edu-accent); border: 1px solid rgba(74,168,232,0.2); }
+  .type-story { background: rgba(78,203,113,0.12); color: var(--story-accent); border: 1px solid rgba(78,203,113,0.2); }
+  .type-sell { background: rgba(232,74,138,0.12); color: var(--sell-accent); border: 1px solid rgba(232,74,138,0.2); }
+
+  .post-day {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .post-body {
+    padding: 24px;
+  }
+
+  .post-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .post-text {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #d0cfc8;
+    white-space: pre-line;
+  }
+
+  .post-text strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .post-footer {
+    padding: 14px 24px;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hashtags {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .copy-btn {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+
+  .copy-btn:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+  }
+
+  .copy-btn.copied {
+    background: rgba(78,203,113,0.15);
+    border-color: rgba(78,203,113,0.4);
+    color: var(--story-accent);
+  }
+
+  /* TIP BOX */
+  .tip-box {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-left: 3px solid var(--gold);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .tip-box strong {
+    color: var(--gold-light);
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 20px 36px; }
+    .week-section { padding: 0 16px; }
+    .post-body { padding: 18px; }
+    .post-header { padding: 14px 18px; }
+    .post-footer { padding: 12px 18px; flex-direction: column; gap: 10px; align-items: flex-start; }
+    .legend { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Eminent Media · LinkedIn Strategy</div>
+  <h1>4-Week LinkedIn<br><span>Content Calendar</span></h1>
+  <p>12 ready-to-post LinkedIn posts for your CV writing service. Copy, paste, and go live.</p>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#4aa8e8"></div> Monday — Education</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4ecb71"></div> Wednesday — Story</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e84a8a"></div> Friday — Soft Sell</div>
+  </div>
+</div>
+
+<!-- ============ WEEK 1 ============ -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-number">01</div>
+    <div class="week-info">
+      <h2>Week One — Build Awareness</h2>
+      <p>Introduce yourself. Establish credibility. Plant the seed.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-edu">Education</span></div>
+      <div class="post-day">📅 Monday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">Why Your CV Gets Rejected Before Anyone Reads It</div>
+      <div class="post-text" id="w1m">Most CVs get rejected before a human reads them.
+
+Here's why:
+
+Companies use ATS software — Applicant Tracking Systems — to automatically filter applications before they reach a recruiter.
+
+If your CV isn't formatted correctly, it gets binned. Even if you're perfectly qualified.
+
+3 things that make ATS reject your CV instantly:
+
+1. Tables and text boxes — the scanner can't read them
+2. Graphics, icons, and photos — same problem
+3. Missing keywords from the job description
+
+Fix those three things and you'll already be ahead of 60% of applicants.
+
+The job market is competitive enough. Don't let bad formatting be the reason you lose.
+
+Save this. Share it with someone who's been applying with no results.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVWriting #JobSearch #CareerAdvice #UKJobs #ATS</div>
+      <button class="copy-btn" onclick="copyPost('w1m', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-story">Story</span></div>
+      <div class="post-day">📅 Wednesday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The CV That Was Working Against Her</div>
+      <div class="post-text" id="w1w">A client sent me her CV recently.
+
+6 years of solid experience. A degree. Good companies on her record.
+
+She'd applied to 47 jobs. Got 2 callbacks.
+
+We rewrote her CV — same experience, completely different presentation.
+
+Within 3 weeks she had 6 interviews booked.
+
+Nothing about her background changed. Only the way it was communicated.
+
+Here's the truth most job seekers don't hear:
+
+Your CV is not your life story. It's a marketing document.
+
+It exists for one purpose — to get you in the room. Not to document everything you've ever done.
+
+If it's not doing that job, the experience on it doesn't matter.
+
+Treat your CV like a pitch. Lead with your strongest points. Cut the fluff. Speak the language of the role you want.
+
+That's what gets callbacks.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVTips #JobHunting #CareerAdvice #Resume #Recruitment</div>
+      <button class="copy-btn" onclick="copyPost('w1w', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-sell">Soft Sell</span></div>
+      <div class="post-day">📅 Friday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">First Week Offer</div>
+      <div class="post-text" id="w1f">If you've been applying for jobs and hearing nothing back —
+
+Your CV is probably the problem. Not your experience.
+
+I write ATS-optimised CVs for the UK and US job market.
+
+Clean. Professional. Built to get past the software and impress the recruiter reading it.
+
+This week I'm offering free CV reviews to a handful of people before they become paid clients.
+
+I'll tell you exactly what's hurting your applications — no obligation to go further.
+
+DM me "CV" if you want me to take a look.
+
+Starting from $25 for a full rewrite.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVWriting #ResumeHelp #JobSearch #CareerCoach #UKJobs</div>
+      <button class="copy-btn" onclick="copyPost('w1f', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>Week 1 tip:</strong> After posting the Monday education post, DM 10–15 people who are job hunting with: <em>"Just posted something that might help you — check my profile when you get a chance."</em> This drives early engagement before the algorithm picks it up.</div>
+</div>
+
+<!-- ============ WEEK 2 ============ -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-number">02</div>
+    <div class="week-info">
+      <h2>Week Two — Build Authority</h2>
+      <p>Deeper insights. Specific expertise. Make them feel you know the industry.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-edu">Education</span></div>
+      <div class="post-day">📅 Monday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The 6-Second Rule</div>
+      <div class="post-text" id="w2m">Recruiters spend an average of 6 seconds on a CV before deciding to read further or move on.
+
+6 seconds.
+
+In that window, they're scanning for three things:
+
+1. Your current or most recent job title
+2. The company you work/worked for
+3. Whether the layout is clean enough to trust
+
+That's it. That's the whole first impression.
+
+This is why the top third of your CV is the most important section. It needs to earn their attention immediately.
+
+How to win those 6 seconds:
+
+— Lead with a sharp 3-line professional summary
+— Make your most recent job title prominent and clear
+— Use clean formatting with no clutter above the fold
+
+If the top of your CV doesn't hook them, nothing below it gets read.
+
+What does the top third of your CV look like right now?</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVTips #JobSearch #Recruitment #ResumeWriting #CareerAdvice</div>
+      <button class="copy-btn" onclick="copyPost('w2m', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-story">Story</span></div>
+      <div class="post-day">📅 Wednesday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The Graduate Who Almost Gave Up</div>
+      <div class="post-text" id="w2w">He graduated with a 2:1 in Finance.
+
+Did two internships. President of his university society.
+
+Applied to 30 graduate schemes. Got one first-round interview.
+
+He told me he was starting to think finance wasn't for him.
+
+We looked at his CV together.
+
+The problem wasn't his experience. It was that his CV read like a job description — not like an achievement record.
+
+"Assisted with financial modelling" became "Built DCF models for three FTSE 100 companies under senior analyst supervision."
+
+Same experience. Completely different impression.
+
+We also restructured the order — education and key achievements above a long list of responsibilities.
+
+Two weeks later: four interview invitations.
+
+The lesson:
+
+Recruiters don't hire responsibilities. They hire results.
+
+Every bullet point on your CV should answer the question — "So what?" If it doesn't, rewrite it.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#GraduateJobs #CVAdvice #Finance #CareerStart #JobHunting</div>
+      <button class="copy-btn" onclick="copyPost('w2w', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-sell">Soft Sell</span></div>
+      <div class="post-day">📅 Friday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The Results Post</div>
+      <div class="post-text" id="w2f">Quick update from this week:
+
+Helped a marketing professional reposition her CV for senior roles in the UK market.
+
+Helped a finance graduate reframe his internship experience to compete with candidates twice his age.
+
+Both now have interview conversations in progress.
+
+This is what I do.
+
+If your CV isn't generating results — let's look at it together.
+
+Free review. No pressure. I'll tell you honestly what needs to change.
+
+DM me "REVIEW" and I'll get back to you today.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVWriting #JobSearch #CareerAdvice #Resume #Hiring</div>
+      <button class="copy-btn" onclick="copyPost('w2f', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>Week 2 tip:</strong> Reply to every single comment on your posts, even with just one sentence. LinkedIn's algorithm heavily rewards comment activity in the first 60 minutes after posting. Set a reminder to check 30 minutes after you post.</div>
+</div>
+
+<!-- ============ WEEK 3 ============ -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-number">03</div>
+    <div class="week-info">
+      <h2>Week Three — Build Trust</h2>
+      <p>Address objections. Speak to doubts. Make hiring you feel safe.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-edu">Education</span></div>
+      <div class="post-day">📅 Monday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">5 CV Mistakes That Cost People Jobs</div>
+      <div class="post-text" id="w3m">I've reviewed hundreds of CVs.
+
+The same five mistakes come up again and again:
+
+1. No professional summary
+The top of the CV is blank space or a generic objective statement. You have 6 seconds — use them to tell me exactly who you are.
+
+2. Responsibilities instead of achievements
+"Managed social media accounts" tells me nothing. "Grew Instagram engagement by 78% in 6 months" tells me everything.
+
+3. One CV for every job
+Tailoring your CV to each role is not optional. A generic CV gets generic results.
+
+4. Wrong file format
+Sending a CV as a Pages file or with a creative template full of columns and icons. ATS software cannot read them.
+
+5. Too long or too short
+Two pages is the standard for experienced professionals. One page for graduates. Three pages for nobody.
+
+Fix these five things before your next application.
+
+Which of these have you been guilty of? Be honest.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVMistakes #JobSearch #CareerTips #ResumeHelp #Recruitment</div>
+      <button class="copy-btn" onclick="copyPost('w3m', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-story">Story</span></div>
+      <div class="post-day">📅 Wednesday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">Why She Was Overqualified on Paper and Still Getting Rejected</div>
+      <div class="post-text" id="w3w">She had 12 years of experience in operations management.
+
+Led teams. Managed budgets. Delivered projects across multiple countries.
+
+And she kept getting rejected at the CV stage.
+
+When I looked at her CV, I understood why immediately.
+
+It read like a company handbook. Dense paragraphs. Vague language. No numbers anywhere.
+
+Recruiters weren't doubting her experience — they just couldn't see it.
+
+We stripped the whole thing back and rebuilt it:
+
+— Every achievement backed by a number or a result
+— Dense paragraphs broken into sharp, scannable bullet points
+— A strong summary that positioned her as a senior leader, not an administrator
+
+First application after the rewrite: shortlisted.
+
+Your experience is only as visible as your CV makes it.
+
+If you're being overlooked — the problem is almost never your background. It's how it's being presented.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#Operations #CVRewrite #CareerAdvice #JobSearch #WomenInBusiness</div>
+      <button class="copy-btn" onclick="copyPost('w3w', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-sell">Soft Sell</span></div>
+      <div class="post-day">📅 Friday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The Value Post</div>
+      <div class="post-text" id="w3f">Let me be direct.
+
+A professionally written CV costs between $25 and $95 with me.
+
+A single job offer — even at entry level — is worth thousands.
+
+The return on investment is not even a close comparison.
+
+What I give you:
+
+— A fully rewritten, ATS-optimised CV
+— Tailored to your target role and industry
+— Delivered in Word and PDF format
+— Unlimited revisions until you're happy
+— 2-day turnaround
+
+What most people do instead:
+
+— Spend months applying with the same CV that isn't working
+— Wonder why they're not getting callbacks
+— Assume the problem is the job market
+
+Sometimes the job market is tough. But your CV should never be the reason you don't get the interview.
+
+DM me if you're ready to fix it.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVWriting #Investment #JobSearch #CareerAdvice #Resume</div>
+      <button class="copy-btn" onclick="copyPost('w3f', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>Week 3 tip:</strong> The Monday "5 mistakes" post typically gets the most saves and shares. When people comment saying which mistake they made — reply and offer your free review directly in the comments. That's public social proof that you're helpful.</div>
+</div>
+
+<!-- ============ WEEK 4 ============ -->
+<div class="week-section">
+  <div class="week-header">
+    <div class="week-number">04</div>
+    <div class="week-info">
+      <h2>Week Four — Convert</h2>
+      <p>You've built awareness and trust. Now turn followers into clients.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-edu">Education</span></div>
+      <div class="post-day">📅 Monday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">How to Write a CV Summary That Gets Read</div>
+      <div class="post-text" id="w4m">Most CV summaries are useless.
+
+"I am a hardworking, motivated professional seeking a challenging role where I can utilise my skills."
+
+That sentence says nothing. It could apply to literally anyone.
+
+A strong CV summary does three things in three lines:
+
+Line 1 — Who you are professionally (title + years of experience + core speciality)
+Line 2 — Your biggest career proof point (a result, achievement, or scale of work)
+Line 3 — What you're seeking and what you bring to it
+
+Example:
+
+"Results-driven Marketing Manager with 7 years of experience in B2B and consumer brand strategy. Led campaigns generating 2.4M impressions and managed a £1.2M annual budget with 34% improvement in ROAS. Seeking a senior role where I can build and scale high-performing marketing teams."
+
+That's specific. That's confident. That earns the next 6 seconds of a recruiter's attention.
+
+Try rewriting yours using that structure.
+
+What does yours say right now? Drop it in the comments — I'll give you honest feedback.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVSummary #JobSearch #CVTips #CareerAdvice #ResumeWriting</div>
+      <button class="copy-btn" onclick="copyPost('w4m', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-story">Story</span></div>
+      <div class="post-day">📅 Wednesday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The Career Changer Who Didn't Know How to Explain Himself</div>
+      <div class="post-text" id="w4w">He spent 8 years in teaching.
+
+Loved the work. But needed a change. He wanted to move into corporate training and L&D.
+
+His CV was a list of school subjects, class sizes, and curriculum objectives.
+
+He told me: "I don't know how to make teaching sound relevant to the corporate world."
+
+The truth is — it already was relevant. He just couldn't see it.
+
+Teaching is stakeholder management. It's presenting complex ideas clearly. It's tracking performance, managing difficult personalities, and delivering results under pressure.
+
+We renamed his experience entirely.
+
+"Class Teacher" became "Learning Facilitator."
+"Lesson Planning" became "Curriculum and Training Programme Design."
+"Parent Consultations" became "Stakeholder Communication and Progress Reporting."
+
+Same eight years. Completely different story.
+
+He got interviews at two L&D consultancies within a month.
+
+Your experience is rarely the problem.
+
+The language you use to describe it almost always is.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CareerChange #CVAdvice #LearningAndDevelopment #JobSearch #Pivot</div>
+      <button class="copy-btn" onclick="copyPost('w4w', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-type"><span class="type-badge type-sell">Soft Sell</span></div>
+      <div class="post-day">📅 Friday</div>
+    </div>
+    <div class="post-body">
+      <div class="post-title">The Month-End Push</div>
+      <div class="post-text" id="w4f">Four weeks of posting about CVs.
+
+And the question I keep getting privately is always the same:
+
+"Can you look at mine?"
+
+Yes. I can.
+
+Here's where I am:
+
+I've helped job seekers in marketing, finance, operations, teaching, tech, and healthcare rewrite their CVs for the UK and US market.
+
+Every single one got more callbacks than before.
+
+If you've been meaning to sort your CV out — now is a good time.
+
+What I offer:
+
+→ Full CV rewrite from $25
+→ ATS-optimised and tailored to your target role
+→ Word and PDF format
+→ Unlimited revisions
+→ 2-day delivery
+
+Link in bio. Or just DM me directly — I respond the same day.
+
+If you've been following this page for a while and haven't taken a step yet — this is your sign.</div>
+    </div>
+    <div class="post-footer">
+      <div class="hashtags">#CVWriting #JobSearch #NowHiring #CareerAdvice #ResumeHelp</div>
+      <button class="copy-btn" onclick="copyPost('w4f', this)">Copy Post</button>
+    </div>
+  </div>
+
+  <div class="tip-box"><strong>Week 4 tip:</strong> On the Monday post, invite people to drop their CV summary in the comments. When they do, give genuine quick feedback publicly. This is the most powerful trust-builder on LinkedIn — real value in public view. Several of those commenters will become clients.</div>
+</div>
+
+<script>
+  function copyPost(id, btn) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy Post';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
